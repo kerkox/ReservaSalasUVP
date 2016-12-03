@@ -6,9 +6,13 @@
 package Logica;
 
 import java.io.Serializable;
+import java.util.LinkedList;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -37,6 +41,9 @@ public class Admin implements Serializable {
     
     @Column (length = 45,nullable = false,unique = false)  
     private String password;
+    
+    @OneToMany(cascade = CascadeType.ALL,fetch = FetchType.LAZY)
+    private LinkedList<Reserva> reservas;
 
     
     

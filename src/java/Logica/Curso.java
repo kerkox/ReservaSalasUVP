@@ -6,9 +6,13 @@
 package Logica;
 
 import java.io.Serializable;
+import java.util.LinkedList;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -24,8 +28,11 @@ public class Curso implements Serializable{
     @Column (length = 50,nullable = false,unique = false) 
     private String nom_asignatura;
     
-    @Column(nullable = true, unique = false)
+    @Column(nullable = false, unique = false)
     private Integer cant_matriculados;
+    
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private LinkedList<Horario> horarios;
 
     
     
@@ -39,6 +46,15 @@ public class Curso implements Serializable{
         this.cant_matriculados = cant_matriculados;
     }
 
+    public LinkedList<Horario> getHorarios() {
+        return horarios;
+    }
+
+    public void setHorarios(LinkedList<Horario> horarios) {
+        this.horarios = horarios;
+    }
+
+    
     public String getCodigo() {
         return codigo;
     }

@@ -25,7 +25,7 @@ public class Periodo implements Serializable {
     private Integer codigo;
     
     @Column(nullable = false, unique = true) 
-    private Integer anion;
+    private Integer anio;
     
     @Column(nullable = false, unique = true) 
     private Integer periodo_num;
@@ -37,7 +37,7 @@ public class Periodo implements Serializable {
 
     public Periodo(Integer codigo, Integer anion, Integer periodo_num) {
         this.codigo = codigo;
-        this.anion = anion;
+        this.anio = anion;
         this.periodo_num = periodo_num;
     }
 
@@ -50,12 +50,12 @@ public class Periodo implements Serializable {
         this.codigo = codigo;
     }
 
-    public Integer getAnion() {
-        return anion;
+    public Integer getAnio() {
+        return anio;
     }
 
-    public void setAnion(Integer anion) {
-        this.anion = anion;
+    public void setAnio(Integer anio) {
+        this.anio = anio;
     }
 
     public Integer getPeriodo_num() {

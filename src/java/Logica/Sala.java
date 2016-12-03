@@ -26,7 +26,7 @@ public class Sala implements Serializable{
     @Column (length = 50,nullable = false,unique = false)  
     private Integer capacidad;
 
-    @Column (length = 50,nullable = false,unique = false)  
+    @Column (nullable = false,unique = false)  
     private Boolean proyector;
 
 

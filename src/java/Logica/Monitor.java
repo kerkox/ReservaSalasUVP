@@ -6,9 +6,13 @@
 package Logica;
 
 import java.io.Serializable;
+import java.util.LinkedList;
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.Id;
+import javax.persistence.OneToMany;
 
 /**
  *
@@ -19,7 +23,7 @@ import javax.persistence.Id;
 public class Monitor implements Serializable{
     
     @Id
-    private Long id;    
+    private Long codigo;    
     
     @Column (length = 50,nullable = false,unique = false)   
     private String nombres;
@@ -36,8 +40,11 @@ public class Monitor implements Serializable{
     @Column (length = 30,nullable = false,unique = false)  
     private String password;
     
-    @Column(nullable = true, unique = false)
+    @Column(nullable = false, unique = false)
     private Float hrs_acumuladas;
+    
+    @OneToMany(cascade = CascadeType.ALL, fetch = FetchType.LAZY)
+    private LinkedList<Horario> horarios;
 
     
     
@@ -46,7 +53,7 @@ public class Monitor implements Serializable{
 
 
     public Monitor(Long id, String nombres, String apellidos, String correo, String telefono, String password, Float hrs_acumuladas) {
-        this.id = id;
+        this.codigo = id;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.correo = correo;
@@ -55,12 +62,22 @@ public class Monitor implements Serializable{
         this.hrs_acumuladas = hrs_acumuladas;
     }
 
-    public Long getId() {
-        return id;
+    public LinkedList<Horario> getHorarios() {
+        return horarios;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setHorarios(LinkedList<Horario> horarios) {
+        this.horarios = horarios;
+    }
+
+    
+    
+    public Long getCodigo() {
+        return codigo;
+    }
+
+    public void setCodigo(Long codigo) {
+        this.codigo = codigo;
     }
 
     public String getNombres() {
