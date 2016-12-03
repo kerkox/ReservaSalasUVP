@@ -7,10 +7,12 @@ package Logica;
 
 import java.io.Serializable;
 import java.util.Date;
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.Temporal;
 
 /**
  *
@@ -23,13 +25,20 @@ public class Reserva implements Serializable {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer codigo; 
     
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fecha_creacion;
     
+    @Temporal(javax.persistence.TemporalType.DATE)
     private Date fecha_inicio;
     
-    
+    @Column(nullable = true, unique = true) 
     private Float duracion; 
     
     
-    private String 
+    
+    private String soft_especifico;
+    
+    
+    
+    
 }

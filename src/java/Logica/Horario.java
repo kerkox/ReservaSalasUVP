@@ -31,16 +31,16 @@ public class Horario implements Serializable{
     private String dia_semana;
             
     @Column (length = 50,nullable = false,unique = false) 
-    private Date fecha_hora_inicio;
+    private String fecha_hora_inicio;
     
     @Column (length = 50,nullable = false,unique = false) 
-    private Date fecha_hora_fin; 
+    private String fecha_hora_fin; 
 
     
     public Horario() {
     }
 
-    public Horario(Integer codigo, String dia_semana, Date fecha_hora_inicio, Date fecha_hora_fin) {
+    public Horario(Integer codigo, String dia_semana, String fecha_hora_inicio, String fecha_hora_fin) {
         this.codigo = codigo;
         this.dia_semana = dia_semana;
         this.fecha_hora_inicio = fecha_hora_inicio;
@@ -63,19 +63,19 @@ public class Horario implements Serializable{
         this.dia_semana = dia_semana;
     }
 
-    public Date getFecha_hora_inicio() {
+    public String getFecha_hora_inicio() {
         return fecha_hora_inicio;
     }
 
-    public void setFecha_hora_inicio(Date fecha_hora_inicio) {
+    public void setFecha_hora_inicio(String fecha_hora_inicio) {
         this.fecha_hora_inicio = fecha_hora_inicio;
     }
 
-    public Date getFecha_hora_fin() {
+    public String getFecha_hora_fin() {
         return fecha_hora_fin;
     }
 
-    public void setFecha_hora_fin(Date fecha_hora_fin) {
+    public void setFecha_hora_fin(String fecha_hora_fin) {
         this.fecha_hora_fin = fecha_hora_fin;
     }
     
