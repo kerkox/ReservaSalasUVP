@@ -28,6 +28,8 @@ public class Reserva implements Serializable {
     private Date fecha_inicio;
     
     
-    private Float duracion 
+    private Float duracion; 
     
+    
+    private String 
 }
