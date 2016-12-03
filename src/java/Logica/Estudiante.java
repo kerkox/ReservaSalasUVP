@@ -13,13 +13,14 @@ import javax.persistence.Id;
 /**
  *
  * @author fusm-cat-palmira
- */ 
+ */
 
 @Entity
-public class Monitor implements Serializable{
+public class Estudiante implements Serializable {
     
+   
     @Id
-    private Long id;    
+    private Long codigo;
     
     @Column (length = 50,nullable = false,unique = false)   
     private String nombres;
@@ -31,36 +32,27 @@ public class Monitor implements Serializable{
     private String correo;
     
     @Column (length = 30,nullable = false,unique = false)  
-    private String telefono;
-    
-    @Column (length = 30,nullable = false,unique = false)  
     private String password;
-    
-    @Column(nullable = true, unique = false)
-    private Float hrs_acumuladas;
 
     
     
-    public Monitor() {
+    public Estudiante() {
     }
-
-
-    public Monitor(Long id, String nombres, String apellidos, String correo, String telefono, String password, Float hrs_acumuladas) {
-        this.id = id;
+    
+    public Estudiante(Long codigo, String nombres, String apellidos, String correo, String password) {
+        this.codigo = codigo;
         this.nombres = nombres;
         this.apellidos = apellidos;
         this.correo = correo;
-        this.telefono = telefono;
         this.password = password;
-        this.hrs_acumuladas = hrs_acumuladas;
     }
 
-    public Long getId() {
-        return id;
+    public Long getCodigo() {
+        return codigo;
     }
 
-    public void setId(Long id) {
-        this.id = id;
+    public void setCodigo(Long codigo) {
+        this.codigo = codigo;
     }
 
     public String getNombres() {
@@ -87,14 +79,6 @@ public class Monitor implements Serializable{
         this.correo = correo;
     }
 
-    public String getTelefono() {
-        return telefono;
-    }
-
-    public void setTelefono(String telefono) {
-        this.telefono = telefono;
-    }
-
     public String getPassword() {
         return password;
     }
@@ -102,14 +86,7 @@ public class Monitor implements Serializable{
     public void setPassword(String password) {
         this.password = password;
     }
-
-    public Float getHrs_acumuladas() {
-        return hrs_acumuladas;
-    }
-
-    public void setHrs_acumuladas(Float hrs_acumuladas) {
-        this.hrs_acumuladas = hrs_acumuladas;
-    }
+    
     
     
     
