@@ -1,0 +1,77 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+  <h:head>
+         <style>
+            
+            body{
+                background-color: #2874A6 ;
+                background-repeat: no-repeat;
+            }
+            
+            
+        </style> 
+    </h:head>
+    <h:body>
+        
+        <p:panel header="Actulizacion Datos Administrador"> 
+   
+
+<!--            <p:messages autoUpdate="true" showDetail="true" > </p:messages>       -->
+            <p:growl id="mensajes" showDetail="true" life="2000" />
+            
+            <h:form> 
+                 <h:panelGrid columns="1"  border="0">
+                     
+              
+                     <h:panelGrid  columns="11" >  
+
+                         <p:outputLabel value="Nombres:*" ></p:outputLabel>
+                         <p:inputText id="txtnombres" size="23" value="#{estudianteControlador.estudiante.nombres}" ></p:inputText>
+                         <p:spacer width="15"  ></p:spacer>
+
+                         <p:outputLabel value="Apellidos:*"></p:outputLabel>
+                         <p:inputText id="txtapellidos" size="25" value="#{estudianteControlador.estudiante.apellidos}" ></p:inputText>
+                         <p:spacer width="15"  ></p:spacer>
+                        
+    
+                         <p:outputLabel value="Celular:"></p:outputLabel>
+                         <p:inputText id="txtcelular" size="15" value="#{estudianteControlador.estudiante.celular}" ></p:inputText>
+                         <p:spacer width="15"  ></p:spacer>
+                         
+            <p:selectOneMenu id="carreramenubox"  style="width:225px" value="#{estudianteControlador.estudiante.carrera}"  >
+   
+            <f:selectItem itemLabel="Administracion" itemValue="admin" />
+            <f:selectItem itemLabel="Contaduria" itemValue="conta" />
+            <f:selectItem itemLabel="Ingenieria de Sistemas" itemValue="inge" />
+
+            </p:selectOneMenu> 
+
+ 
+                     </h:panelGrid>
+                     
+   
+                     
+                     <h:panelGrid columns="4">
+                         <p:spacer width="900" height="40"  ></p:spacer>
+                         <p:commandButton value="Guardar Cambios" actionListener="#{estudianteControlador.editar()}" update="@all"  ></p:commandButton> 
+                     
+                         <p:spacer width="20" height="40"  ></p:spacer>
+                         <p:commandButton value="Salir" action="return" update="@all"  ></p:commandButton> 
+                     </h:panelGrid>
+
+                     
+                      <p:spacer width="40"  ></p:spacer>
+                     
+                     </h:panelGrid>  
+                    
+            </h:form>
+
+        </p:panel>        
+        
+    </h:body>
+</html>
+
