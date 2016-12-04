@@ -12,6 +12,7 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
 import javax.persistence.Temporal;
 
 /**
@@ -40,16 +41,16 @@ public class Reserva implements Serializable {
     @Column (length = 50,nullable = true,unique = false)
     private String observaciones;
     
-    @Column (nullable = false,unique = false)
+    @JoinColumn (nullable = false,unique = false)
     private Monitor monitor;
     
-    @Column (nullable = true,unique = false)
+    @JoinColumn (nullable = true,unique = false)
     private Sala sala;
     
-    @Column (nullable = true,unique = false)
+    @JoinColumn (nullable = true,unique = false)
     private Sancion sancion;
     
-    @Column (nullable = true,unique = false)
+    @JoinColumn (nullable = true,unique = false)
     private Cancelacion cancelacion;
 
     public Reserva() {
