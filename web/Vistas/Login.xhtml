@@ -1,0 +1,112 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"> 
+    <h:head>
+        <title> Bienvenido - Reserva Sala de Sistemas</title>
+        
+        <style>          
+            body{
+                background-image: url("http://www.rcg.com.mx/fundacion/wp-content/uploads/2015/05/shutterstock_595274411.jpg");
+                background-repeat: no-repeat;
+                background-color: white 
+            }    
+        </style>
+        
+    </h:head>
+    
+    <h:body style="text-align:center">
+        <p:growl id="mensajes" showDetail="true" life="2000" />
+        
+
+        <p:panel style=" background-color:#ed4444; width:1340px  "    >
+          <h1 align="rigth" style=" color: whitesmoke" > Universidad del Valle Sede Palmira </h1>
+        </p:panel>
+        
+
+        <p:spacer height="120" > </p:spacer>
+        
+       
+    <h:panelGrid   columns="3"  border="0" >
+       
+        <p:spacer width="150" height=""> </p:spacer>
+ 
+        
+<!--        panel interno-->
+<p:panel style=" width:820px  "   rendered="true"  >
+      
+    <h:panelGrid columns="2" >
+    
+<!--      elemento 1-->
+      <h1 align="left" style=" color: #6D6E71" > Reserva Salas de Sistemas </h1>
+       
+    
+<!--      elemento 2-->
+      <h:form> 
+            <p:panel header="Acceso a Sistema Reserva Salas"  style="width:400px "   >
+                <h:panelGrid columns="2" cellpadding="5" >
+                    <h:outputLabel for="username" value="Correo:"  />
+                    <p:inputText value="#{loginBean.nombre}" id="username"
+                                 required="true" label="correo" />
+                    <h:outputLabel for="password" value="Contraseña:" />
+                    <p:password value="#{loginBean.clave}" id="contraseña" required="true"
+                                label="password" />
+                    
+                    
+                    
+                        
+                    <f:facet name="footer">
+             
+                        <p:commandButton id="loginButton" value="Login"
+                                         actionListener="#{loginBean.login}" update=":mensajes"
+                                         oncomplete="manejarLogin(xhr, status, args)" />
+ 
+                    </f:facet>
+                    
+   
+                </h:panelGrid>
+                
+                <p:link value="¿Olvidó su contraseña?"> </p:link>
+                
+            </p:panel>
+      </h:form>
+
+    </h:panelGrid>
+    
+        </p:panel>
+        
+        
+        
+    
+      <p:spacer width="250" height="100"> </p:spacer> 
+      
+        
+    </h:panelGrid>    
+        
+
+<!--        <p:panel style=" background-color:#6D6E71; width:1325px "    >
+            
+        </p:panel>       -->
+        
+        
+        
+    </h:body>
+    
+    
+    <script type="text/javascript">
+  //<![CDATA[
+  function manejarLogin(xhr, status, args) {
+    if (!args.validationFailed && args.estaLogeado) {
+      setTimeout(function() {
+        window.location = args.view;
+      }, 500);
+    }
+  }
+//]]>
+</script>
+    
+    
+    
+    </html>
