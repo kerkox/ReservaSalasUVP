@@ -34,7 +34,9 @@ public class HorarioControlador implements Serializable {
         this.horario = horario;
     }
     
-    public vooid
+    public void guardar(){
+        
+    }
     
     public boolean camposVacios(Horario h){
         boolean salida = false;
@@ -44,6 +46,8 @@ public class HorarioControlador implements Serializable {
         }else if(h.getCodigo()==null){
             salida = true;
         }
+        
+        return salida;
     }
     
 }
