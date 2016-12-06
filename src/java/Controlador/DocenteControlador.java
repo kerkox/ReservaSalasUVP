@@ -5,12 +5,15 @@
  */
 package Controlador;
 
+import Logica.Cancelacion;
 import Logica.Docente;
 import Persistencia.DocenteFacade;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -39,7 +42,48 @@ public class DocenteControlador implements Serializable {
     public void setDocente(Docente docente) {
         this.docente = docente;
     }
+
     
+    public void agregar(Docente docente) {
+        try {
+            docentefacade.create(docente);
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
+        }
+    }
+      
+    
+    public void eliminar(Docente docente) {
+        try {
+            docentefacade.remove(docente);
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
+        }
+    }
+    
+    public void editar(Docente docente) {
+        try {
+            docentefacade.edit(docente);
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
+        }
+    }
+    
+    public void finAll() {
+        try {
+            docentefacade.findAll();
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
+        }
+    }
+    
+    public void find(Docente docente) {
+        try {
+            docentefacade.find(docente);
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
+        }
+    }
     
     
 }
