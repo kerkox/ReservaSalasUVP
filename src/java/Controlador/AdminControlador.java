@@ -6,9 +6,7 @@
 package Controlador;
 
 import Logica.Admin;
-import Logica.Cancelacion;
 import Persistencia.AdminFacade;
-import Persistencia.CancelacionFacade;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
@@ -28,72 +26,29 @@ public class AdminControlador implements Serializable {
      * Creates a new instance of AdminControlador
      */
     
-    private Cancelacion cancelacion = new Cancelacion();
+    private Admin admin = new Admin();
     
     @EJB
-    private CancelacionFacade cancelacionFacade;
+    private AdminFacade adminFacade;
     
     public AdminControlador() {
     }
 
-    public Cancelacion getCancelacion() {
-        return cancelacion;
+    public Admin getAdmin() {
+        return admin;
     }
 
-    public void setCancelacion(Cancelacion cancelacion) {
-        this.cancelacion = cancelacion;
+    public void setAdmin(Admin admin) {
+        this.admin = admin;
     }
 
-    public CancelacionFacade getCancelacionFacade() {
-        return cancelacionFacade;
-    }
 
-    public void setCancelacionFacade(CancelacionFacade cancelacionFacade) {
-        this.cancelacionFacade = cancelacionFacade;
-    }
-    
-    
-    public void agregar(Cancelacion cancelacion) {
+    public void editar(Admin admin) {
         try {
-            cancelacionFacade.create(cancelacion);
+            adminFacade.edit(admin);
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
         }
-    }
-      
-    
-    public void eliminar(Cancelacion cancelacion) {
-        try {
-            cancelacionFacade.remove(cancelacion);
-        } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
-        }
-    }
-    
-    public void editar(Cancelacion cancelacion) {
-        try {
-            cancelacionFacade.edit(cancelacion);
-        } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
-        }
-    }
-    
-    public void finAll() {
-        try {
-            cancelacionFacade.findAll();
-        } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
-        }
-    }
-    
-    public void find(Cancelacion cancelacion) {
-        try {
-            cancelacionFacade.find(cancelacion);
-        } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
-        }
-    }
-    
-    
-    
+    }  
+
 }
