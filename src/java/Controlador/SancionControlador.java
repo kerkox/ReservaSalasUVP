@@ -11,6 +11,8 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -30,5 +32,24 @@ public class SancionControlador implements Serializable {
     
     public SancionControlador() {
     }
+
+    public Sancion getSancion() {
+        return sancion;
+    }
+
+    public void setSancion(Sancion sancion) {
+        this.sancion = sancion;
+    }
+    
+    public void agregar(Sancion sancion){
+        try{
+        this.sancionfacade.create(sancion);
+        }catch(Exception e){
+             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
+        }
+        
+    }
+    
+    
     
 }

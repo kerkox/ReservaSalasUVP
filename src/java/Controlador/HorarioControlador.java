@@ -25,5 +25,25 @@ public class HorarioControlador implements Serializable {
     
     public HorarioControlador() {
     }
+
+    public Horario getHorario() {
+        return horario;
+    }
+
+    public void setHorario(Horario horario) {
+        this.horario = horario;
+    }
+    
+    public vooid
+    
+    public boolean camposVacios(Horario h){
+        boolean salida = false;
+        
+        if(h.getCodigo()==null){
+            salida = true;            
+        }else if(h.getCodigo()==null){
+            salida = true;
+        }
+    }
     
 }
