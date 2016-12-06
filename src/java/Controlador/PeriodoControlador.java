@@ -5,9 +5,12 @@
  */
 package Controlador;
 
+import Logica.Periodo;
+import Persistencia.PeriodoFacade;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import javax.ejb.EJB;
 
 /**
  *
@@ -20,6 +23,10 @@ public class PeriodoControlador implements Serializable {
     /**
      * Creates a new instance of PeriodoControlador
      */
+    @EJB
+    private PeriodoFacade periodoFacade;
+    private Periodo periodo = new Periodo();
+    
     public PeriodoControlador() {
     }
     

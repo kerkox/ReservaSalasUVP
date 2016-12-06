@@ -5,9 +5,12 @@
  */
 package Controlador;
 
+import Logica.Monitor;
+import Persistencia.MonitorFacade;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import javax.ejb.EJB;
 
 /**
  *
@@ -20,6 +23,11 @@ public class MonitorControlador implements Serializable {
     /**
      * Creates a new instance of MonitorControlador
      */
+    @EJB
+    private MonitorFacade monitorFacade;
+    private Monitor monitor = new Monitor();
+    
+    
     public MonitorControlador() {
     }
     

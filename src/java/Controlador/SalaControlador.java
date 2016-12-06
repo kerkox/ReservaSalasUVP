@@ -5,9 +5,12 @@
  */
 package Controlador;
 
+import Logica.Sala;
+import Persistencia.SalaFacade;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import javax.ejb.EJB;
 
 /**
  *
@@ -20,6 +23,10 @@ public class SalaControlador implements Serializable {
     /**
      * Creates a new instance of SalaControlador
      */
+    @EJB
+    private SalaFacade salaFacade;
+    private Sala sala = new Sala();
+    
     public SalaControlador() {
     }
     

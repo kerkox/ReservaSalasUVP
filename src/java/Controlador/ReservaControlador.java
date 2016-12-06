@@ -5,9 +5,12 @@
  */
 package Controlador;
 
+import Logica.Reserva;
+import Persistencia.ReservaFacade;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import javax.ejb.EJB;
 
 /**
  *
@@ -20,6 +23,11 @@ public class ReservaControlador implements Serializable {
     /**
      * Creates a new instance of ReservaControlador
      */
+    @EJB
+    private ReservaFacade reservaFacade;
+    private Reserva reserva = new Reserva();
+    
+    
     public ReservaControlador() {
     }
     
