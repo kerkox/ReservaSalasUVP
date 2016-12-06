@@ -5,17 +5,74 @@
       xmlns:p="http://primefaces.org/ui"
       xmlns:f="http://xmlns.jcp.org/jsf/core">
   <h:head>
-         <style>
-            
+         
+             
+        <style>          
             body{
-                background-color: #2874A6 ;
+                background-image: url("http://www.rcg.com.mx/fundacion/wp-content/uploads/2015/05/shutterstock_595274411.jpg");
                 background-repeat: no-repeat;
-            }
-            
-            
+                background-color: white 
+            }    
         </style> 
+        
     </h:head>
+    
     <h:body>
+        
+               
+      <p:panel style=" background-color:#ed4444; width:1340px  "    >
+          <h1 align="left" style=" color: whitesmoke" > Sistema Gestion Reservas </h1>
+      </p:panel>
+        
+
+<h:form>  
+    
+    <p:growl id="messages"/>
+ 
+    <p:menubar>
+        <p:submenu label="Reservas" icon="ui-icon-document">
+            <p:submenu label="Nueva _Reserva" icon="ui-icon-contact">
+                <p:menuitem value="Project" url="#" />
+                <p:menuitem value="Other" url="#" />
+            </p:submenu>
+            <p:menuitem value="Estado Reservas" url="#" />
+            <p:separator />
+            <p:menuitem value="Quit"  action="salir" />
+        </p:submenu>
+ 
+        
+        <p:submenu label="Monitores" icon="ui-icon-contact"> 
+            <p:menuitem value="Registrar Monitor" url="#" icon="ui-icon-pencil" />
+            <p:menuitem value="Horarios monitores" url="#" icon="ui-icon-arrowreturnthick-1-e" />
+        </p:submenu>
+        
+        
+        
+        <p:submenu label="Datos Admin" icon="ui-icon-contact"> 
+            <p:menuitem value="Actualizar Datos" url="#" icon="ui-icon-pencil" />
+            <p:menuitem value="Cambiar Contraseña" url="#" icon="ui-icon-arrowreturnthick-1-e" />
+        </p:submenu>
+ 
+   
+ 
+        
+ 
+        <f:facet name="options">
+            <p:outputLabel value="Admin"> </p:outputLabel> 
+             <p:spacer width="5"  ></p:spacer>
+            <p:commandButton type="button" value="Logout" icon="ui-icon-extlink" />
+        </f:facet>
+        
+    </p:menubar>
+    
+    
+    
+</h:form>
+        
+        
+        
+        
+        
         
         <p:panel header="Actulizacion Datos Administrador"> 
    
@@ -36,24 +93,40 @@
                          <p:outputLabel value="Apellidos:*"></p:outputLabel>
                          <p:inputText id="txtapellidos" size="25" value="#{estudianteControlador.estudiante.apellidos}" ></p:inputText>
                          <p:spacer width="15"  ></p:spacer>
-                        
-    
+     
                          <p:outputLabel value="Celular:"></p:outputLabel>
                          <p:inputText id="txtcelular" size="15" value="#{estudianteControlador.estudiante.celular}" ></p:inputText>
                          <p:spacer width="15"  ></p:spacer>
                          
-            <p:selectOneMenu id="carreramenubox"  style="width:225px" value="#{estudianteControlador.estudiante.carrera}"  >
+                         <p:outputLabel value="Documento Id.:"></p:outputLabel>
+                         <p:inputText id="identificacion" size="15" value="#{estudianteControlador.estudiante.celular}" ></p:inputText>
+                         <p:spacer width="15"  ></p:spacer>
+                         
+<!--            <p:selectOneMenu id="carreramenubox"  style="width:225px" value="#{estudianteControlador.estudiante.carrera}"  >
    
             <f:selectItem itemLabel="Administracion" itemValue="admin" />
             <f:selectItem itemLabel="Contaduria" itemValue="conta" />
             <f:selectItem itemLabel="Ingenieria de Sistemas" itemValue="inge" />
 
-            </p:selectOneMenu> 
+            </p:selectOneMenu> -->
 
- 
                      </h:panelGrid>
+                    
                      
-   
+<!--                <h:panelGrid columns="11" >
+                         <p:outputLabel value="Correo:"></p:outputLabel>
+                         <p:inputText id="txtcorreo" size="30" value="#{estudianteControlador.estudiante.celular}" ></p:inputText>
+                         <p:spacer width="15"  ></p:spacer>
+                         
+                         <p:outputLabel value="Password:"></p:outputLabel>
+                         <p:inputText id="txtpasword" size="15" value="#{estudianteControlador.estudiante.celular}" ></p:inputText>
+                         <p:spacer width="15"  ></p:spacer>
+                     
+                     </h:panelGrid>-->
+                     
+                     
+                     
+                     
                      
                      <h:panelGrid columns="4">
                          <p:spacer width="900" height="40"  ></p:spacer>

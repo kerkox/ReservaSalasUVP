@@ -17,4 +17,11 @@
             <to-view-id>/Vistas/ActualizacionDatosAdmin.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/Vistas/ActualizacionDatosAdmin.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>salir</from-outcome>
+            <to-view-id>/Vistas/Login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>

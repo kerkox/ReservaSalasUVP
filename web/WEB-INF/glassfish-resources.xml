@@ -16,8 +16,8 @@
         <property name="portNumber" value="3306"/>
         <property name="databaseName" value="reservas"/>
         <property name="User" value="root"/>
-        <property name="Password" value="toor"/>
-        <property name="URL" value="jdbc:mysql://localhost:3306/reservas?zeroDateTimeBehavior=convertToNull"/>
+        <property name="Password" value=""/>
+        <property name="URL" value="jdbc:mysql://localhost:3306/reservas"/>
         <property name="driverClass" value="com.mysql.jdbc.Driver"/>
     </jdbc-connection-pool>
     <jdbc-resource enabled="true" jndi-name="java:app/reservas_sala_BD" object-type="user" pool-name="mysql_reservas_rootPool"/>
