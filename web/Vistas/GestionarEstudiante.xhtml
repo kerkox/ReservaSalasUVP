@@ -1,0 +1,131 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    
+    <h:head>
+        <title>Gestion De Estudiante</title>
+        <style> 
+        
+            body{
+                background-image: url("http://www.rcg.com.mx/fundacion/wp-content/uploads/2015/05/shutterstock_595274411.jpg");
+                background-repeat: no-repeat;
+                background-color: whitesmoke;
+            }
+            
+        </style>
+        
+    </h:head>
+    <h:body>
+        
+        
+        <p:panel style="background-color: #ed4444 ; width: 1340px " >
+            <h1 aling ="left" style="color: whitesmoke" >Sistema Gestion De Reserva</h1>
+        </p:panel>
+            
+   <h:form>  
+    
+       <p:growl id="messages" autoUpdate="true"  life="3000"/>
+ 
+    <p:menubar>
+        <f:facet name="options">
+            <p:outputLabel value="Admin"> </p:outputLabel> 
+             <p:spacer width="5"  ></p:spacer>
+             <p:commandButton value="Logout" icon="ui-icon-extlink" action="salirEstudiante" />
+        </f:facet>
+    </p:menubar>
+ 
+    <p:panel header="Gestion Estudiante">       
+       
+    <h:panelGrid columns="1" border="0" >
+        
+        <h:panelGrid columns="9" border="0">
+            
+            <p:spacer width="45 px" height="40"/>
+            <p:outputLabel value="Codigo" />
+            <p:inputText id="txtidentificacion" value="#{estudianteControlador.estudiante.codigo}"  
+                         requiredMessage="Por favor digite el codigo"/>
+            
+            <p:spacer width="20 px" />
+            <p:outputLabel value="Nombre" />
+            <p:inputText id="txtnombre" value="#{estudianteControlador.estudiante.nombres}"
+                                                  requiredMessage="Por favor digite el nombre"/>
+            
+            <p:spacer width="20 px" />
+            <p:outputLabel value="Apellido" />
+            <p:inputText id="txtapelldio" value="#{estudianteControlador.estudiante.apellidos}" 
+                                                  requiredMessage="Por favor digite el apellido"/>
+
+        </h:panelGrid>  
+       
+        
+        <h:panelGrid columns="8" border="0">
+            
+            <p:spacer width="10 px" height="40" />
+            <p:outputLabel value="Password"  />
+            <p:spacer width="10 px" />
+            <p:inputText id="txtpassword" value="#{estudianteControlador.estudiante.password}" 
+                         requiredMessage="Por favor digite el password"/>
+            
+            <p:spacer width="20 px" />
+            <p:outputLabel value="correo" />
+            <p:spacer width="10 px" />
+            <p:inputText id="txtcorreo" value="#{estudianteControlador.estudiante.correo}" 
+                         requiredMessage="Por favor digite el correo"/>
+
+        </h:panelGrid> 
+        
+        <h:panelGrid columns="6" border="0">
+            
+            <p:spacer width="900" height="40" />
+            <p:commandButton  value="Guardar" actionListener="#{estudianteControlador.registrar()}"/>
+            <p:spacer width="20" />
+            <p:commandButton type="submit" value="Eliminar" />
+            <p:spacer width="20" />
+            <p:commandButton type="submit" value="Editar" />
+            
+        </h:panelGrid>
+            
+        <p:panelGrid columns="1" >
+        <h:form>      
+        <p:dataTable var="e" value="#{estudianteControlador.findall()}" >
+         <p:column>
+          <f:facet name="header">ID</f:facet>
+          <h:outputText value="#{e.codigo}"></h:outputText>
+         </p:column>
+         <p:column>
+             <f:facet name="header">Nombre</f:facet>
+          <h:outputText value="#{e.nombres}"></h:outputText>
+         </p:column>
+         <p:column>
+             <f:facet name="header">Apellidos</f:facet>
+             <h:outputText value="#{e.apellidos}"></h:outputText>
+         </p:column>
+         <p:column>
+             <f:facet name="header">Password</f:facet>
+             <h:outputText value="#{e.password}"></h:outputText>
+         </p:column>
+         <p:column>
+             <f:facet name="header">Correo</f:facet>
+             <h:outputText value="#{e.correo}"></h:outputText>
+         </p:column>
+         <p:column>
+             <f:facet name="header">Opciones</f:facet>
+             <p:commandButton value="Eliminar" action="#{estudianteControlador.eliminar(e)}" onclick="return 
+                              confirm(Estas seguro?)"></p:commandButton>
+             <p:commandButton value="Editar  " action="#{estudianteControlador.editar(e)}" onclick="return 
+                              confirm(Estas seguro?)" ></p:commandButton>
+         </p:column>
+      </p:dataTable>
+            
+        </h:form>      
+        </p:panelGrid>
+        
+      </h:panelGrid>
+     
+    </p:panel>  
+       </h:form>   
+        </h:body>
+</html>

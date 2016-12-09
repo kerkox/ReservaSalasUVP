@@ -43,37 +43,36 @@ public class CancelacionControlador implements Serializable {
     }
 
     
-    public void agregar(Cancelacion cancelacion) {
+    public void agregar() {
         try {
             cancelacionFacade.create(cancelacion);
+            cancelacion = new Cancelacion();
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
         }
     }
       
     
-    public void eliminar(Cancelacion cancelacion) {
+    public void eliminar() {
         try {
             cancelacionFacade.remove(cancelacion);
+            cancelacion = new Cancelacion();
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
         }
     }
     
-    public void editar(Cancelacion cancelacion) {
+    public void editar() {
         try {
             cancelacionFacade.edit(cancelacion);
+            cancelacion = new Cancelacion();
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
         }
     }
     
     public void finAll() {
-        try {
             cancelacionFacade.findAll();
-        } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
-        }
     }
     
     public void find(Cancelacion cancelacion) {

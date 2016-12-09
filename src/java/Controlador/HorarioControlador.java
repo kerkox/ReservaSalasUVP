@@ -5,7 +5,10 @@ import Persistencia.HorarioFacade;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -34,10 +37,6 @@ public class HorarioControlador implements Serializable {
         this.horario = horario;
     }
     
-    public void guardar(){
-        
-    }
-    
     public boolean camposVacios(Horario h){
         boolean salida = false;
         
@@ -48,6 +47,41 @@ public class HorarioControlador implements Serializable {
         }
         
         return salida;
+    }
+    
+    public void registrar() {
+        try {
+            horarioFacade.create(this.horario);
+            horario = new Horario();
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,e.getMessage(),"Debe completar todos los campos obligatorios"));
+        }
+    }
+    
+    public void eliminar() {
+        try {
+            horarioFacade.remove(this.horario);
+            horario = new Horario();
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
+        }
+    }
+    
+    public void editar() {
+        try {
+            horarioFacade.edit(this.horario);
+            horario = new Horario();
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
+        }
+    }
+    
+    public List<Horario> findall() {
+            return horarioFacade.findAll();
+    }
+    
+    public Horario find() {
+            return horarioFacade.find(this.horario);
     }
     
 }

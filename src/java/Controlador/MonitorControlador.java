@@ -10,7 +10,10 @@ import Persistencia.MonitorFacade;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -29,6 +32,46 @@ public class MonitorControlador implements Serializable {
     
     
     public MonitorControlador() {
+    }
+
+    public Monitor getMonitor() {
+        return monitor;
+    }
+
+    public void setMonitor(Monitor monitor) {
+        this.monitor = monitor;
+    }
+    
+    
+    public void registrar() {
+        try {
+            monitorFacade.create(monitor);
+            monitor = new Monitor();
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios ","Debe completar todos los campos obligatorios"));
+        }
+    }
+    
+    public void eliminar() {
+        try {
+            monitorFacade.remove(monitor);
+            monitor = new Monitor();
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
+        }
+    }
+    
+    public void editar() {
+        try {
+            monitorFacade.edit(monitor);
+            monitor = new Monitor();
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
+        }
+    }
+    
+    public List<Monitor> findall(){
+        return monitorFacade.findAll();
     }
     
 }

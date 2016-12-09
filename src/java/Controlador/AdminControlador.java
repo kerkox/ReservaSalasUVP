@@ -43,7 +43,7 @@ public class AdminControlador implements Serializable {
     }
 
 
-    public void editar(Admin admin) {
+    public void editar() {
         try {
             adminFacade.edit(admin);
         } catch (Exception e) {

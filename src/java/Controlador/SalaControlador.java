@@ -11,6 +11,8 @@ import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -29,5 +31,54 @@ public class SalaControlador implements Serializable {
     
     public SalaControlador() {
     }
+
+    public Sala getSala() {
+        return sala;
+    }
+
+    public void setSala(Sala sala) {
+        this.sala = sala;
+    }
+    
+    public void agregar() {
+        try {
+            salaFacade.create(this.sala);
+            sala = new Sala();
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
+        }
+    }
+      
+    
+    public void eliminar() {
+        try {
+            salaFacade.remove(this.sala);
+            sala = new Sala();
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
+        }
+    }
+    
+    public void editar() {
+        try {
+            salaFacade.edit(this.sala);
+            sala = new Sala();
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
+        }
+    }
+    
+    public void findAll(){
+            salaFacade.findAll();
+    }
+    
+    public void find(Sala sala) {
+        try {
+            salaFacade.find(sala);
+        } catch (Exception e) {
+            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
+        }
+    }
+    
     
 }

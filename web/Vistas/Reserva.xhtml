@@ -1,0 +1,117 @@
+<?xml version='1.0' encoding='UTF-8' ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui"
+      xmlns:f="http://xmlns.jcp.org/jsf/core">
+    <h:head>
+        <title>Reservas</title>
+        
+         <style>          
+            body{
+                background-image: url("http://www.rcg.com.mx/fundacion/wp-content/uploads/2015/05/shutterstock_595274411.jpg");
+                background-repeat: no-repeat;
+                background-color: white 
+            }    
+        </style> 
+        
+    </h:head>
+    <h:body>
+           
+         
+        <p:panel style="background-color: #ed4444 ; width: 1340px " >
+            <h1 aling ="left" style="color: whitesmoke" >Sistema Gestion De Reserva</h1>
+        </p:panel>
+            
+   <h:form>  
+    
+       <p:growl id="messages" autoUpdate="true"  life="3000"/>
+ 
+    <p:menubar>
+        <f:facet name="options">
+            <p:outputLabel value=""> </p:outputLabel> 
+             <p:spacer width="5"  ></p:spacer>
+             <p:commandButton value="Logout" icon="ui-icon-extlink" action="salirReserva" />
+        </f:facet>
+    </p:menubar>
+    
+     </h:form> 
+        
+        
+     <p:panel header="Reservas">
+        
+    <h:form>     
+    <h:panelGrid columns="1" border="0" >
+        
+        <h:panelGrid columns="9" border="0">
+            
+            <p:spacer width="45 px" height="40"/>
+            <p:outputLabel value="Fecha Inicio" />
+            <p:inputText id="txtfechainicio" value="#{reservaControlador.reserva.fecha_inicio}" required="true"
+                         requiredMessage="Por favor digite la fecha de inicio"/>
+            
+            <p:spacer width="20 px" />
+            <p:outputLabel value="Duracion" />
+            <p:inputText id="txtapelldio" value="#{reservaControlador.reserva.duracion}" required="true"
+                         requiredMessage="Por favor digite la duracion"/>
+            
+            <p:spacer width="20 px" />
+            <p:outputLabel value="Software Especifico" />
+            <p:inputText id="txtidentificacion" value="#{reservaControlador.reserva.soft_especifico}" />
+
+        </h:panelGrid>  
+       
+        
+        <h:panelGrid columns="4" border="0">
+            
+            <p:spacer width="10 px" height="40" />
+            <p:outputLabel value="Observaciones"  />
+            <p:spacer width="10 px" />
+            <h:inputTextarea id="txtpassword" cols="110" rows="5" value="#{reservaControlador.reserva.observaciones}" />
+
+        </h:panelGrid> 
+        
+         
+        
+        <h:panelGrid columns="6" border="0">
+            
+            <p:spacer width="900" height="40" />
+            <p:commandButton  value="Guardar" update="@all" actionListener="#{reservaControlador.registrar()}"/>
+            <p:spacer width="20" />
+            
+        </h:panelGrid>
+        
+        
+        <p:panelGrid columns="1" >
+        <h:form>      
+            <p:dataTable var="r"  >
+         <p:column>
+          <f:facet name="header">Fecha Inicio</f:facet>
+          <h:outputText value="#{r.fecha_inicio}"></h:outputText>
+         </p:column>
+         <p:column>
+             <f:facet name="header">Duracion</f:facet>
+             <h:outputText value="#{r.duracion}"></h:outputText>
+         </p:column>
+         <p:column>
+             <f:facet name="header">Software Especifico</f:facet>
+             <h:outputText value="#{r.soft_especifico}"></h:outputText>
+         </p:column>
+         <p:column>
+             <f:facet name="header">Observaciones</f:facet>
+             <h:outputText value="#{r.observaciones}"></h:outputText>
+         </p:column>
+         
+      </p:dataTable>
+            
+        </h:form>      
+        </p:panelGrid>
+        
+        </h:panelGrid> 
+        </h:form> 
+     </p:panel>
+            
+    </h:body>
+</html>
+
+

@@ -10,6 +10,7 @@ import Persistencia.SancionFacade;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.EJB;
 import javax.faces.application.FacesMessage;
 import javax.faces.context.FacesContext;
@@ -41,15 +42,36 @@ public class SancionControlador implements Serializable {
         this.sancion = sancion;
     }
     
-    public void agregar(Sancion sancion){
+    public void registrar(){
         try{
         this.sancionfacade.create(sancion);
+        sancion = new Sancion();
         }catch(Exception e){
              FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
         }
-        
     }
     
+    public void eliminar(){
+        try{
+        this.sancionfacade.remove(sancion);
+        sancion = new Sancion();
+        }catch(Exception e){
+             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
+        }
+    }
+    
+    public void editar(){
+        try{
+        this.sancionfacade.edit(sancion);
+        sancion = new Sancion();
+        }catch(Exception e){
+             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
+        }
+    }
+    
+    public List<Sancion> findall(){
+        return sancionfacade.findAll();
+    }
     
     
 }

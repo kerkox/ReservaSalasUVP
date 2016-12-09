@@ -2,9 +2,13 @@
 <Scene Scope="Project" version="2">
     <Scope Scope="Faces Configuration Only"/>
     <Scope Scope="Project">
-        <Node id="Vistas/ActualizacionDatosAdmin.xhtml" x="415" y="88" zoom="true"/>
-        <Node id="index.xhtml" x="87" y="156" zoom="true"/>
+        <Node id="index.xhtml" x="129" y="76" zoom="true"/>
+        <Node id="Vistas/ActualizacionDatosAdmin.xhtml" x="306" y="38" zoom="true"/>
+        <Node id="Vistas/GestionarEstudiante.xhtml" x="595" y="120" zoom="true"/>
         <Node id="Vistas/Login.xhtml" x="326" y="246" zoom="true"/>
+        <Node id="Vistas/Reserva.xhtml" x="591" y="318" zoom="true"/>
+        <Node id="Vistas/GestionarMonitor.xhtml" x="185" y="369" zoom="true"/>
+        <Node id="Vistas/GestionarDocente.xhtml" x="-3" y="237" zoom="true"/>
     </Scope>
     <Scope Scope="All Faces Configurations"/>
 </Scene>

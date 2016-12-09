@@ -43,26 +43,29 @@ public class CursoControlador implements Serializable {
     }
     
     
-    public void agregar(Curso curso) {
+    public void agregar() {
         try {
             cursoFacade.create(curso);
+            curso = new Curso();
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
         }
     }
       
     
-    public void eliminar(Curso curso) {
+    public void eliminar() {
         try {
             cursoFacade.remove(curso);
+            curso = new Curso();
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
         }
     }
     
-    public void editar(Curso curso) {
+    public void editar() {
         try {
             cursoFacade.edit(curso);
+            curso = new Curso();
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
         }

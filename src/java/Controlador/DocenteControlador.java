@@ -44,9 +44,10 @@ public class DocenteControlador implements Serializable {
     }
 
     
-    public void agregar(Docente docente) {
+    public void agregar() {
         try {
-            docentefacade.create(docente);
+            docentefacade.create(this.docente);
+            docente = new Docente();
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
         }
@@ -56,6 +57,7 @@ public class DocenteControlador implements Serializable {
     public void eliminar(Docente docente) {
         try {
             docentefacade.remove(docente);
+            docente = new Docente();
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
         }
@@ -64,17 +66,14 @@ public class DocenteControlador implements Serializable {
     public void editar(Docente docente) {
         try {
             docentefacade.edit(docente);
+            docente = new Docente();
         } catch (Exception e) {
             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
         }
     }
     
-    public void finAll() {
-        try {
+    public void findAll(){
             docentefacade.findAll();
-        } catch (Exception e) {
-            FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
-        }
     }
     
     public void find(Docente docente) {

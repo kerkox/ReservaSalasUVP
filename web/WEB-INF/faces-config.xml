@@ -24,4 +24,32 @@
             <to-view-id>/Vistas/Login.xhtml</to-view-id>
         </navigation-case>
     </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/Vistas/GestionarDocente.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>salirDocente</from-outcome>
+            <to-view-id>/Vistas/Login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/Vistas/GestionarEstudiante.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>salirEstudiante</from-outcome>
+            <to-view-id>/Vistas/Login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/Vistas/Reserva.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>SalirReservas</from-outcome>
+            <to-view-id>/Vistas/Login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
+    <navigation-rule>
+        <from-view-id>/Vistas/GestionarMonitor.xhtml</from-view-id>
+        <navigation-case>
+            <from-outcome>SalirMonitor</from-outcome>
+            <to-view-id>/Vistas/Login.xhtml</to-view-id>
+        </navigation-case>
+    </navigation-rule>
 </faces-config>

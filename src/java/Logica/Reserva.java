@@ -56,19 +56,18 @@ public class Reserva implements Serializable {
     public Reserva() {
     }
 
-    public Reserva(Integer codigo, Date fecha_creacion, Date fecha_inicio, Float duracion, String soft_especifico, String observaciones, Monitor monitor, Sala sala, Sancion sancion, Cancelacion cancelacion) {
+    public Reserva(Integer codigo, Date fecha_inicio, Float duracion, String soft_especifico, String observaciones) {
         this.codigo = codigo;
-        this.fecha_creacion = fecha_creacion;
+        this.fecha_creacion = new Date();
         this.fecha_inicio = fecha_inicio;
         this.duracion = duracion;
         this.soft_especifico = soft_especifico;
         this.observaciones = observaciones;
-        this.monitor = monitor;
-        this.sala = sala;
-        this.sancion = sancion;
-        this.cancelacion = cancelacion;
+        this.monitor = new Monitor();
+        this.sala = new Sala();
+        this.sancion = new Sancion();
+        this.cancelacion = new Cancelacion();
     }
-
     
     
     public Integer getCodigo() {

@@ -10,7 +10,10 @@ import Persistencia.ReservaFacade;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.List;
 import javax.ejb.EJB;
+import javax.faces.application.FacesMessage;
+import javax.faces.context.FacesContext;
 
 /**
  *
@@ -30,5 +33,45 @@ public class ReservaControlador implements Serializable {
     
     public ReservaControlador() {
     }
+
+    public Reserva getReserva() {
+        return reserva;
+    }
+
+    public void setReserva(Reserva reserva) {
+        this.reserva = reserva;
+    }
+    
+    public void registrar(){
+        try{
+        this.reservaFacade.create(reserva);
+        reserva = new Reserva();
+        }catch(Exception e){
+             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
+        }
+    }
+    
+    public void eliminar(Reserva reserva){
+        try{
+        this.reservaFacade.remove(reserva);
+        reserva = new Reserva();
+        }catch(Exception e){
+             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
+        }
+    }
+    
+    public void editar(Reserva reserva){
+        try{
+        reservaFacade.edit(reserva);
+        reserva = new Reserva();
+        }catch(Exception e){
+             FacesContext.getCurrentInstance().addMessage(null, new FacesMessage(FacesMessage.SEVERITY_WARN,"Campos obligatorios","Debe completar todos los campos obligatorios"));
+        }
+    }
+    
+    public List<Reserva> findall(){
+        return reservaFacade.findAll();
+    }
+    
     
 }

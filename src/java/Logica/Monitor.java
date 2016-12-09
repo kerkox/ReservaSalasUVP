@@ -60,6 +60,7 @@ public class Monitor implements Serializable{
         this.telefono = telefono;
         this.password = password;
         this.hrs_acumuladas = hrs_acumuladas;
+        this.horarios= new LinkedList<>();
     }
 
     public LinkedList<Horario> getHorarios() {
